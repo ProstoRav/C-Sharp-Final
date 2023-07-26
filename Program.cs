@@ -27,8 +27,8 @@ string[] CreateArray()
 {
     int length;
     Console.Write($"Введите количество строк в массиве: ");
-    int.TryParse(Console.ReadLine()!, out length);
-    if (length < 0)
+    bool success = int.TryParse(Console.ReadLine()!, out length);
+    if (length < 1)
     {
         Console.WriteLine($"Вы ввели не натуральное число, пожалуйста перезапустите программу");
         Environment.Exit(0);
@@ -37,8 +37,8 @@ string[] CreateArray()
     for (int i = 0; i < length; i++)
     {
         Console.Write($"Введите {i + 1}-ю строку массива: ", i + 1);
-        array[i] = Console.ReadLine();
-        if (!string.IsNullOrEmpty(array[i]))
+        array[i] = Console.ReadLine()!;
+        if (!string.IsNullOrWhiteSpace(array[i]))
         {
 
         }
